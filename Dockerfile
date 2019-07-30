@@ -1,7 +1,8 @@
 FROM ubuntu:18.04
 
 RUN \
-  apt-get update && \
+  apt update && \
+  apt upgrade -y && \
   apt install -y git build-essential libssl-dev openssl && \
   git clone https://github.com/ReclaimYourPrivacy/eschalot.git && \
   mkdir -p /usr/lib/eschalot && \
