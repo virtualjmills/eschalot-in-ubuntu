@@ -1,9 +1,9 @@
 FROM ubuntu:20.04
 
 RUN \
-  apt update && \
-  apt upgrade --assume-yes && \
-  apt install --assume-yes git build-essential libssl-dev openssl && \
+  apt-get --quiet update && \
+  apt-get --quiet upgrade --assume-yes && \
+  apt-get --quiet install --assume-yes git build-essential libssl-dev openssl && \
   git clone https://github.com/virtualjmills/eschalot.git && \
   mkdir --parents /usr/lib/eschalot && \
   cd /eschalot/ && \
@@ -15,9 +15,9 @@ RUN \
   cp *.txt /usr/lib/eschalot/ && \
   cd / && \
   rm -rf /eschalot && \
-  apt remove --assume-yes --purge git build-essential libssl-dev && \
-  apt autoremove --assume-yes --purge && \
-  apt clean && \
+  apt-get --quiet remove --assume-yes --purge git build-essential libssl-dev && \
+  apt-get --quiet autoremove --assume-yes --purge && \
+  apt-get --quiet clean && \
   rm -rf /var/lib/apt/lists/* \
   ;
 
